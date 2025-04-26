@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import { increaseCount, setDarkTheme, setVersion } from '@/renderer/store/slices/appScreenSlice';
 import { bodyRoot, jumbo } from '@/renderer/assets/css/global';
 import type { RootState } from '@/renderer/store';
@@ -31,7 +31,7 @@ export default function MainScreen() {
 
   useEffect(() => {
     // Get application version from package.json version string (Using IPC communication)
-    dispatch(setVersion(window.mainApi.sendSync('msgRequestGetVersion')));
+    dispatch(setVersion(window.mainApi.sendSync('msgRequestGetVersion') as string));
   }, []);
 
   return (
